@@ -1,4 +1,4 @@
-# Math Functions
+# Math Utilities
 
 A Set of Math Functions to make my life (and the people who use this lives') easier.
 
