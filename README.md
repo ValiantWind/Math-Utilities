@@ -1,4 +1,4 @@
-g# Math Utilities
+# Math Utilities
 
 A Set of Math Functions to make my life (and the people who use this lives') easier.
 
@@ -7,7 +7,7 @@ A Set of Math Functions to make my life (and the people who use this lives') eas
 Two reasons.
 
 1. I get bored of my current projects sometimes.
-  2. I showed my Calculus teacher my [https://github.com/ValiantWind/Calculators](Calculators Project) and he was impressed about the fact that I'm trying to make a website for several types of Calculators.
+  2. I showed my Calculus teacher my [Calculators Project]([https://github.com/ValiantWind/Calculators) and he was impressed about the fact that I'm trying to make a website for several types of Calculators.
     - He asked if I could make a set of functions and tools that could help with general math equations and formulas and such, and that if I managed to do this, he'd give me extra credit. That's very cool of him.
 
 ## Contributions

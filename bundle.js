@@ -20,7 +20,7 @@ function getMidpoint(x1, y1, x2, y2) {
     const p2 = (y1 + y2) / 2;
     return `(${p1}, ${p2})`;
 }
-exports.default = Algebra;
+exports.Algebra = Algebra;
 
 },{}],2:[function(require,module,exports){
 "use strict";
@@ -81,7 +81,7 @@ function leastToGreatest(array) {
 function greatestToLeast(array) {
     return array.sort((a, b) => b - a);
 }
-exports.default = Arithmetic;
+exports.Arithmetic = Arithmetic;
 
 },{}],3:[function(require,module,exports){
 "use strict";
@@ -98,7 +98,7 @@ function GetFactorial(number) {
     }
     return number;
 }
-exports.default = Calculus;
+exports.Calculus = Calculus;
 
 },{}],4:[function(require,module,exports){
 "use strict";
@@ -145,7 +145,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
     return result;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Geometry = exports.Calculus = exports.Arithmetic = exports.Algebra = void 0;
 // export { Algebra, Arithmetic, Calculus, Geometry }
 exports.Algebra = __importStar(require("./Math/Algebra"));
 exports.Arithmetic = __importStar(require("./Math/Arithmetic"));
