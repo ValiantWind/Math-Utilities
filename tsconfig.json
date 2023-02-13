@@ -7,14 +7,12 @@
  
     /* Modules */
     "module": "commonjs",                                /* Specify what module code is generated. */
-    // "rootDir": "./src",                                  /* Specify the root folder within your source files. */
-    // "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
-    // "baseUrl": "./",                                  /* Specify the base directory to resolve non-relative module names. */
+    "moduleResolution": "node",                       /* Specify how TypeScript looks up a file from a given module specifier. */
 
     /* Emit */
-    // "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
+   "declaration": true,                              /* Generate .d.ts files from TypeScript and JavaScript files in your project. */
 
-    // "outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
+    "outDir": "./dist",                                   /* Specify an output folder for all emitted files. */
     // "removeComments": false,                           /* Disable emitting comments. */
   
     // "importHelpers": true,                            /* Allow importing helper functions from tslib once per project, instead of including them per-file. */
@@ -23,10 +21,14 @@
 
     /* Type Checking */
     "strict": true,                                      /* Enable all strict type-checking options. */
-    // "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
+  "noImplicitAny": true,                            /* Enable error reporting for expressions and declarations with an implied 'any' type. */
     // "strictNullChecks": true,                         /* When type checking, take into account 'null' and 'undefined'. */
     // "strictFunctionTypes": true,                      /* When assigning functions, check to ensure parameters and the return values are subtype-compatible. */
     // "alwaysStrict": true,                             /* Ensure 'use strict' is always emitted. */
-    // "allowUnreachableCode": false,                     /* Disable error reporting for unreachable code. */
-  }
+ "allowUnreachableCode": false,                     /* Disable error reporting for unreachable code. */
+  },
+	"exclude": [
+		"test",
+		"node_modules"
+	]
 }
