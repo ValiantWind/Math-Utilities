@@ -1,5 +1,6 @@
 export type Sum = number
 export type Difference = number
+export type Product = number
 export type Quotient = number
 export type Average = number
 export type Median = number
@@ -12,9 +13,11 @@ export type GreatestToLeast = number[]
 
 type BaseArithmetic = {
 	add(array: number[]): Sum
-	substract(array: number[]): Difference
+	subtract(array: number[]): Difference
+	multiply(array: number[], numOfDecimals?: number): Product
+	divide(array: number[], numOfDecimals?: number): Quotient
 	getAverage(array: number[]): Average
-	median(array: number[]): Median
+	getMedian(array: number[]): Median
 	random(min: number, max: number): number
 	getEvens(array: number[]) : EvenNumbers
 	getOdds(array: number[]): OddNumbers
@@ -28,7 +31,7 @@ const Arithmetic : BaseArithmetic = {
 	multiply,
 	divide,
 	getAverage,
-	median,
+	getMedian,
 	random,
 	getEvens,
 	getOdds,
@@ -40,14 +43,14 @@ function add(array: number[]): Sum {
 	return array.reduce((a, b) => a + b)
 }
 
-function substract(array: number[]) : Difference {
+function subtract(array: number[]) : Difference {
 	return array.reduce((a, b) => a - b)
 }
 
 function multiply(array: number[], numOfDecimals?: number): Product {
     const productToString = array.reduce((a, b) => a * b).toString()
-    const productToFloat = parseFloat(sumToString)
-    const product = parseFloat(sumToFloat.toFixed(numOfDecimals))
+    const productToFloat = parseFloat(productToString)
+    const product = parseFloat(productToFloat.toFixed(numOfDecimals))
     return product
 }
 
