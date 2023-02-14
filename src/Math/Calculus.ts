@@ -8,7 +8,7 @@ const Calculus: BaseCalculus = {
 	GetFactorial
 }
 
-function GetFactorial(number: number): Factorial {
+function getFactorial(number: number): Factorial {
 	if (number === 0 || number === 1){
 		return 1;
 	}
