@@ -1,10 +1,10 @@
 {
-  "name": "math-utils",
+  "name": "math-functions",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "scripts": {
     "build": "tsc",
-    "format": "npm run format"
+    "format": "prettier --write ."
   },
   "keywords": [
     "math",

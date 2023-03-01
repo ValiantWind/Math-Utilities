@@ -1,4 +1,4 @@
-# Math Utilities
+# Math Functions
 
 A Zero-Dependency Package containing Set of Math Functions to make my life (and the people who use this lives') easier.
 
@@ -11,7 +11,7 @@ Documentation coming soon!
 ### Installing:
 
 ```
-npm install math-utils
+npm install math-functions
 ```
 
 ---
@@ -20,10 +20,10 @@ npm install math-utils
 
 ```ts
 // Common JS
-const { Algebra, Arithmetic, Calculus, Converters } = require("math-utils");
+const { Algebra, Arithmetic, Calculus, Converters } = require("math-functions");
 
 // ES6
-import { Algebra, Arithmetic, Calculus, Converters } from "math-utils";
+import { Algebra, Arithmetic, Calculus, Converters } from "math-functions";
 
 console.log(Algebra.getSlope(1, 2, 9, 6)); // 0.5
 console.log(Arithmetic.getEvens[(1, 2, 3, 5, 6, 9, 0, 69, 420)]); // [2, 6, 0, 420]
@@ -39,8 +39,7 @@ Two reasons.
 1. I get bored of my current projects sometimes.
 2. I showed my Calculus teacher my [Calculators Project]([https://github.com/ValiantWind/Calculators) and he was impressed about the fact that I'm trying to make a website for several types of Calculators.
 
-
-    - He asked if I could make a set of functions and tools that could help with general math equations and formulas and such, and that if I managed to do this, he'd give me extra credit. That's very cool of him.
+   - He asked if I could make a set of functions and tools that could help with general math equations and formulas and such, and that if I managed to do this, he'd give me extra credit. That's very cool of him.
 
 ## Why use this over other Math-related Packages?
 
