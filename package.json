@@ -1,10 +1,10 @@
 {
   "name": "math-utils",
   "version": "1.0.0",
-  "main": "./dist/index.js",
+  "main": "./dist/src/index.js",
   "scripts": {
     "build": "tsc",
-		"format": "npm run format"
+    "format": "npm run format"
   },
   "keywords": [
     "math",
