@@ -1,0 +1,23 @@
+export type Celcius = number;
+export type Fahrenheit = number;
+export type Kelvin = number;
+export type Hex = string;
+export type Hexadecimal = string;
+export type Decimal = number;
+export type Degrees = number;
+export type Radians = number;
+type BaseConverters = {
+  FtoC(fahrenheit: number): Celcius;
+  FtoK(fahrenheit: number): Kelvin;
+  CtoF(celcius: number): Fahrenheit;
+  CtoK(celcius: number): Kelvin;
+  KtoF(kelvin: number): Fahrenheit;
+  KtoC(kelvin: number): Celcius;
+  rgbToHex(r: number, g: number, b: number): Hex;
+  decimalToHexadecimal(decimal: number): Hexadecimal;
+  hexadecimalToDecimal(hexadecimal: string): Decimal;
+  degreesToRadians(degree: number): Radians;
+  radiansToDegrees(radian: number): Degrees;
+};
+declare const Converters: BaseConverters;
+export default Converters;

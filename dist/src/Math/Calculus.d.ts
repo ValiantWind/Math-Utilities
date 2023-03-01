@@ -1,6 +1,6 @@
 export type Factorial = number;
 type BaseCalculus = {
-    GetFactorial(number: number): Factorial;
+  getFactorial(number: number): Factorial;
 };
 declare const Calculus: BaseCalculus;
 export default Calculus;
