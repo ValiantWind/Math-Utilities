@@ -1,22 +1,17 @@
+import { BaseMath } from "./Base";
+
 export type Circumference = number;
 export type CircleArea = number;
 
-type BaseGeometry = {
-  getCircumference(radius: number): Circumference;
-  getCircleArea(radius: number): CircleArea;
-};
+export class Geometry extends BaseMath {
 
-const Geometry: BaseGeometry = {
-  getCircumference,
-  getCircleArea,
-};
+  static getCircumference(radius: number): Circumference {
+    this.validateNumber(radius);
+    return 2 * radius * Math.PI;
+  }
 
-function getCircumference(radius: number): Circumference {
-  return 2 * radius * Math.PI;
+  static getCircleArea(radius: number): CircleArea {
+    this.validateNumber(radius);
+    return Math.PI * (radius ** 2);
+  }
 }
-
-function getCircleArea(radius: number): CircleArea {
-  return Math.PI * (radius * radius);
-}
-
-export default Geometry;

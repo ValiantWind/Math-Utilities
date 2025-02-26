@@ -1,3 +1,5 @@
+import { BaseMath } from "./Base";
+
 export type Sum = number;
 export type Difference = number;
 export type Product = number;
@@ -14,135 +16,96 @@ export type isEven = boolean;
 export type isOdd = boolean;
 export type GreatestCommonDenominator = number;
 
-type BaseArithmetic = {
-  add(array: number[]): Sum;
-  subtract(array: number[]): Difference;
-  multiply(array: number[], numOfDecimals?: number): Product;
-  divide(array: number[], numOfDecimals?: number): Quotient;
-  getAverage(array: number[]): Average;
-  getMedian(array: number[]): Median;
-  random(min: number, max: number): number;
-  getEvens(array: number[]): EvenNumbers;
-  getOdds(array: number[]): OddNumbers;
-  leastToGreatest(array: number[]): LeastToGreatest;
-  greatestToLeast(array: number[]): GreatestToLeast;
-  getPrimeFactors(num: number): PrimeFactors;
-  isEven(num: number): isEven;
-  isOdd(num: number): isOdd;
-  isPrime(num: number): isPrime;
-};
-
-const Arithmetic: BaseArithmetic = {
-  add,
-  subtract,
-  multiply,
-  divide,
-  getAverage,
-  getMedian,
-  random,
-  getEvens,
-  getOdds,
-  leastToGreatest,
-  greatestToLeast,
-  getPrimeFactors,
-  isEven,
-  isOdd,
-  isPrime,
-};
-
-function add(array: number[]): Sum {
-  const sum = [...array].reduce((acc, val) => acc + val, 0);
-  return sum;
-}
-
-function subtract(array: number[]): Difference {
-  return array.reduce((a, b) => a - b);
-}
-
-function multiply(array: number[], numOfDecimals?: number): Product {
-  const productToString = array.reduce((a, b) => a * b).toString();
-  const productToFloat = parseFloat(productToString);
-  const product = parseFloat(productToFloat.toFixed(numOfDecimals));
-  return product;
-}
-
-function divide(array: number[], numOfDecimals?: number): Quotient {
-  const quotientToString = array.reduce((a, b) => a / b).toString();
-  const quotientToFloat = parseFloat(quotientToString);
-  const quotient = parseFloat(quotientToFloat.toFixed(numOfDecimals));
-  return quotient;
-}
-
-function getAverage(array: number[]): Average {
-  return array.reduce((a, b) => a + b) / array.length;
-}
-
-function getMedian(array: number[]): Median {
-  array.sort((a, b) => a - b);
-
-  const half = Math.floor(array.length / 2);
-
-  if (array.length % 2) return array[half];
-
-  return (array[half - 1] + array[half]) / 2.0;
-}
-
-function random(min: number, max: number): number {
-  return Math.random() * (min - max) + min;
-}
-
-function getEvens(array: number[]): EvenNumbers {
-  return array.filter((num) => num % 2 == 0);
-}
-
-function getOdds(array: number[]): OddNumbers {
-  return array.filter((num) => num % 2 == 1);
-}
-
-function leastToGreatest(array: number[]): LeastToGreatest {
-  return array.sort((a, b) => a - b);
-}
-
-function greatestToLeast(array: number[]): GreatestToLeast {
-  return array.sort((a, b) => b - a);
-}
-
-function getPrimeFactors(num: number): PrimeFactors {
-  let array = [],
-    factor = 2;
-  while (num > 1) {
-    if (num % factor === 0) {
-      array.push(factor);
-      num /= factor;
-    } else {
-      factor++;
-    }
+export class Arithmetic extends BaseMath {
+  static add(array: number[]): Sum {
+      this.validateNumber(...array);
+      return array.reduce((acc, val) => acc + val, 0);
   }
-  return array;
-}
 
-function isEven(num: number): boolean {
-  if (num % 2 === 0) {
-    return true;
+  static subtract(array: number[]): Difference {
+      this.validateNumber(...array);
+      return array.reduce((a, b) => a - b);
   }
-  return false;
-}
 
-function isOdd(num: number): boolean {
-  if (num % 2 === 1) {
-    return true;
+  static multiply(array: number[], numOfDecimals?: number): Product {
+      this.validateNumber(...array);
+      const product = array.reduce((a, b) => a * b);
+      return numOfDecimals !== undefined ? parseFloat(product.toFixed(numOfDecimals)) : product;
   }
-  return false;
-}
 
-function isPrime(num: number): isPrime {
-  const boundary = Math.floor(Math.sqrt(num));
-  for (let i = 2; i < boundary; i++) {
-    if (num % i === 0) {
-      return false;
-    }
+  static divide(array: number[], numOfDecimals?: number): Quotient {
+      this.validateNumber(...array);
+      const quotient = array.reduce((a, b) => a / b);
+      return numOfDecimals !== undefined ? parseFloat(quotient.toFixed(numOfDecimals)) : quotient;
   }
-  return num >= 2;
-}
 
-export default Arithmetic;
+  static getAverage(array: number[]): Average {
+      this.validateNumber(...array);
+      return this.add(array) / array.length;
+  }
+
+  static getMedian(array: number[]): Median {
+      this.validateNumber(...array);
+      array.sort((a, b) => a - b);
+      const half = Math.floor(array.length / 2);
+      return array.length % 2 ? array[half] : (array[half - 1] + array[half]) / 2.0;
+  }
+
+  static random(min: number, max: number): number {
+      this.validateNumber(min, max);
+      return Math.random() * (max - min) + min;
+  }
+
+  static getEvens(array: number[]): EvenNumbers {
+      this.validateNumber(...array);
+      return array.filter((num) => num % 2 === 0);
+  }
+
+  static getOdds(array: number[]): OddNumbers {
+      this.validateNumber(...array);
+      return array.filter((num) => num % 2 === 1);
+  }
+
+  static leastToGreatest(array: number[]): LeastToGreatest {
+      this.validateNumber(...array);
+      return [...array].sort((a, b) => a - b);
+  }
+
+  static greatestToLeast(array: number[]): GreatestToLeast {
+      this.validateNumber(...array);
+      return [...array].sort((a, b) => b - a);
+  }
+
+  static getPrimeFactors(num: number): PrimeFactors {
+      this.validateNumber(num);
+      let factors = [], factor = 2;
+      while (num > 1) {
+          if (num % factor === 0) {
+              factors.push(factor);
+              num /= factor;
+          } else {
+              factor++;
+          }
+      }
+      return factors;
+  }
+
+  static isEven(num: number): isEven {
+      this.validateNumber(num);
+      return num % 2 === 0;
+  }
+
+  static isOdd(num: number): isOdd {
+      this.validateNumber(num);
+      return num % 2 === 1;
+  }
+
+  static isPrime(num: number): isPrime {
+      this.validateNumber(num);
+      if (num < 2) return false;
+      for (let i = 2, sqrt = Math.sqrt(num); i <= sqrt; i++) {
+          if (num % i === 0) return false;
+      }
+      return true;
+  }
+}
